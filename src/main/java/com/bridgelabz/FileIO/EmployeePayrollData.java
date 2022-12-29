@@ -4,10 +4,8 @@ public class EmployeePayrollData {
     int id;
     String name;
     double salary;
-
     EmployeePayrollData() {
     }
-
     public EmployeePayrollData(int id, String name, double salary) {
         this.id = id;
         this.name = name;
