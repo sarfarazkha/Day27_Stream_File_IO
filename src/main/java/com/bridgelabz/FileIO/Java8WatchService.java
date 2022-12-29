@@ -14,13 +14,13 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Java8WatchService extends EmployeePayrollService  {
+public class Java8WatchService {
+
     private static final Kind<?> ENTRY_DELETE = null;
     private static final Kind<?> ENTRY_MODIFY = null;
     private static final Kind<?> ENTRY_CREATE = null;
     private final WatchService watcher;
     private final Map<WatchKey, Path> dirWatchers;
-
     public Java8WatchService(Path dir) throws IOException {
         this.watcher = FileSystems.getDefault().newWatchService();
         this.dirWatchers = new HashMap<WatchKey, Path>();
@@ -42,7 +42,7 @@ public class Java8WatchService extends EmployeePayrollService  {
         });
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void processEvents() {
         while (true) {
             WatchKey key;
@@ -66,10 +66,11 @@ public class Java8WatchService extends EmployeePayrollService  {
                             scanAndRegisterDirectories(child);
                     } catch (IOException x) {
                     }
-                } else if (kind.equals(ENTRY_DELETE))  {
+                } else if (kind.equals(ENTRY_DELETE)) {
                     if (Files.isDirectory(child))
                         dirWatchers.remove(key);
                 }
+
             }
             boolean valid = key.reset();
             if (!valid) {
