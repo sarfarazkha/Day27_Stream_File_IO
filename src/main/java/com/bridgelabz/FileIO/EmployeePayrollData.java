@@ -20,7 +20,7 @@ public class EmployeePayrollData {
     public String getEmployeeName() {
         return employeeName;
     }
-    public void setEmployeeName(String employeeName) {
+    public void setEmployeeName(String employeeName)  {
         this.employeeName = employeeName;
     }
 

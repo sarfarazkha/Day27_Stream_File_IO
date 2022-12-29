@@ -14,7 +14,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Java8WatchService extends EmployeePayrollService {
+public class Java8WatchService extends EmployeePayrollService  {
     private static final Kind<?> ENTRY_DELETE = null;
     private static final Kind<?> ENTRY_MODIFY = null;
     private static final Kind<?> ENTRY_CREATE = null;
@@ -66,11 +66,10 @@ public class Java8WatchService extends EmployeePayrollService {
                             scanAndRegisterDirectories(child);
                     } catch (IOException x) {
                     }
-                } else if (kind.equals(ENTRY_DELETE)) {
+                } else if (kind.equals(ENTRY_DELETE))  {
                     if (Files.isDirectory(child))
                         dirWatchers.remove(key);
                 }
-
             }
             boolean valid = key.reset();
             if (!valid) {
