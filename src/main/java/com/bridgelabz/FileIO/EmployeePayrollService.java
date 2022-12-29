@@ -9,9 +9,7 @@ public class EmployeePayrollService {
     public enum IOService {
         CONSOLE_IO, FILE_IO, DB_IO, REST_IO
     }
-
     private List<EmployeePayrollData> employeePayrollList;
-
     public EmployeePayrollService() {
     }
 
@@ -40,7 +38,6 @@ public class EmployeePayrollService {
         double salary = Double.parseDouble(consoleInputReader.nextLine());
         employeePayrollList.add(new EmployeePayrollData(id, name, salary));
     }
-
     private void writeEmployeeData() {
         System.out.println("Writing Employee Payroll Data to Console\n" + employeePayrollList);
     }
